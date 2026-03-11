@@ -1,0 +1,299 @@
+/* =========================================
+   VARIABLES
+========================================= */
+
+:root{
+    /* Colors */
+    --bg: #ececec;
+    --surface: #ffffff;
+    --text: #1a1a1a;
+    --header-bg: rgba(255,255,255,.85);
+
+    --available: #94ee82;
+    --available-hover: #60bb4e;
+    --disabled: #d8abab;
+    --ocupado: #e07070;
+    --selected: #4368ce;
+    --past: #d1d1d1;
+    --almost: #f0c74b;
+
+    /* Layout */
+    --max-width: 1100px;
+    --radius: 12px;
+
+    /* Effects */
+    --shadow: 0 8px 25px rgba(0,0,0,.08);
+    --transition: all 0.3s ease;
+
+    /* Font */
+    --font-main: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* =========================================
+   DARK MODE
+========================================= */
+
+body.dark {
+    --bg: #141414;
+    --surface: #302f2f;
+    --text: #f2f2f2;
+
+    --available: #69af5b;
+    --available-hover: #56b943;
+    --disabled: #967a7a;
+    --ocupado: #d95555;
+    --selected: #3b65be;
+}
+
+/* =========================================
+   BASE
+========================================= */
+
+body{
+    font-family: var(--font-main);
+    background: var(--bg);
+    transition: var(--transition);
+}
+
+/* =========================================
+   CALENDARIO
+========================================= */
+
+.calendar{
+    color: var(--text);
+    width: 100%;
+    max-width: 350px;
+    background: var(--surface);
+
+    border-radius: var(--radius);
+    padding: 20px;
+    margin: 0 auto;
+
+    box-shadow: var(--shadow);
+    box-sizing: border-box;
+}
+
+/* Header calendario */
+
+.calendar header{
+    color: var(--text);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Botones navegación */
+
+.calendar button{
+    background: var(--text);
+    color: var(--surface);
+
+    border: none;
+    padding: 5px 10px;
+
+    cursor: pointer;
+    border-radius: 5px;
+
+    transition: var(--transition);
+}
+
+/* =========================================
+   GRID DEL CALENDARIO
+========================================= */
+
+.weekdays{
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+
+    text-align: center;
+    font-weight: bold;
+
+    margin-bottom: 10px;
+}
+
+.days{
+    color: var(--text);
+
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    gap: 6px;
+
+    text-align: center;
+
+    transition: all .2s ease;
+}
+
+/* =========================================
+   DÍAS
+========================================= */
+
+.dia{
+    color: var(--text);
+
+    padding: 10px;
+    text-align: center;
+
+    border-radius: 6px;
+    cursor: pointer;
+
+    transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+}
+
+/* =========================================
+   ESTADOS DEL CALENDARIO
+========================================= */
+
+/* Disponible */
+
+.available{
+    background: var(--available);
+}
+
+.available:hover{
+    background: var(--available-hover);
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Día deshabilitado */
+
+.disabled{
+    background: var(--disabled);
+    color: var(--text);
+    cursor: not-allowed;
+}
+
+/* Día pasado */
+
+.past{
+    background: var(--past);
+    color: #777;
+    cursor: not-allowed;
+}
+
+/* Día ocupado */
+
+.ocupado{
+    background: var(--ocupado);
+    color: white;
+    cursor: not-allowed;
+    opacity: 0.9;
+}
+
+/* Día casi lleno */
+
+.casi-lleno{
+    background: var(--almost);
+    color: var(--text);
+    /* cursor: not-allowed; */
+}
+
+/* Día seleccionado */
+
+.seleccionada{
+    background: var(--selected);
+    color: white;
+    border: 2px var(--selected);
+    transition: var(--transition);
+}
+.seleccionada:hover{
+    background: var(--selected);
+}
+
+/* =========================================
+   ANIMACIONES
+========================================= */
+
+.fade{
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all .2s ease;
+}
+
+.formReserva{
+    border:solid;
+    max-width: 350px;
+    margin: 30px auto 50px auto; /* espacio arriba y abajo */
+    padding: 20px;
+    background: var(--surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-sizing: border-box;
+    transition: var(--transition);
+    color: var(--text);
+}
+.formReserva input [type="text"],
+.formReserva select{
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    background: var(--surface);
+    color: var(--text);
+}
+
+.formReserva h3 {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+    text-align: center;
+}
+.formReserva input [type="text"]:focus,
+.formReserva select:focus{
+    border-color:#4368ce;
+    outline:none;
+    box-shadow: 0 0 6px rgba(67, 104, 206, 0.3);
+}
+.formReserva select {
+    cursor: pointer;
+}
+.formReserva button {
+    padding: 12px;
+    background-color: #4368ce;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.formReserva button:hover {
+    background-color: #3b5ab5;
+    transform: scale(1.03);
+    box-shadow: 0 4px 12px rgba(67,104,206,0.2);
+}
+
+/* ====== MODO OSCURO ====== */
+body.dark .formReserva {
+    background: var(--surface);
+    color: var(--text);
+}
+
+body.dark .formReserva input,
+body.dark .formReserva select {
+    background: #4a4a4a;
+    color: #f2f2f2;
+    border: 1px solid #666;
+}
+
+body.dark .formReserva input::placeholder {
+    color: #bbb;
+}
+
+body.dark .formReserva button {
+    background-color: var(--selected);
+}
+
+body.dark .formReserva button:hover {
+    background-color: #2f4fa0;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <button class="theme-toggle" aria-label="Toggle theme">
+        🌙
+    </button>
+    <!-- CALENDARIO -->
+        <div class="calendar">
+
+            <header>
+                <button type="button" id="prev">◀</button>
+                <span id="monthYear"></span>
+                <button type="button" id="next">▶</button>
+            </header>
+
+            <!-- Encabezado de días -->
+            <div class="weekdays">
+                <div>Dom</div>
+                <div>Lun</div>
+                <div>Mar</div>
+                <div>Mié</div>
+                <div>Jue</div>
+                <div>Vie</div>
+                <div>Sáb</div>
+            </div>
+
+            <!-- Días dinámicos -->
+            <div class="days" id="days"></div>
+
+        </div>
+
+        <form action="guardarReservas.php" method="POST" class="formReserva">
+
+            <h3>Reservar fecha</h3>
+
+            <input type="hidden" name="fecha" id="fechaSeleccionada">
+
+            <input type="text" name="nombre" placeholder="Tu nombre" required>
+
+            <select name="servicio" required>
+                <option value="">Seleccionar servicio</option>
+                <option value="Sesion fotos">Sesión de fotos</option>
+                <option value="Evento">Evento</option>
+                <option value="Producto">Fotografía de producto</option>
+            </select>
+
+            <button type="submit">Reservar</button>
+
+        </form>
+
+        <script src="script.js"></script>
+
+        <script>
+            fetch("obtenerReservas.php")
+            .then(res => res.json())
+            .then(data =>{
+                window.fechasReservadas = data;
+                cargarCalendario();
+            });
+        </script>
+        
+</body>
+</html>
