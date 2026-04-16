@@ -9,12 +9,12 @@
     --text: #1a1a1a;
     --header-bg: rgba(255,255,255,.85);
 
-    --available: #94ee82;
-    --available-hover: #60bb4e;
-    --disabled: #d8abab;
+    --available: #dddddd;
+    --available-hover: #a1d897;
+    --disabled: #dd8383;
     --ocupado: #e07070;
     --selected: #4368ce;
-    --past: #d1d1d1;
+    --past: #c4c4c4;
     --almost: #f0c74b;
 
     /* Layout */
@@ -38,8 +38,8 @@ body.dark {
     --surface: #302f2f;
     --text: #f2f2f2;
 
-    --available: #69af5b;
-    --available-hover: #56b943;
+    --available: #808080;
+    --available-hover: #92c288;
     --disabled: #967a7a;
     --ocupado: #d95555;
     --selected: #3b65be;
@@ -230,7 +230,7 @@ body{
 }
 .formReserva input [type="text"],
 .formReserva select{
-    padding: 10px 12px;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 16px;
